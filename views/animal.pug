@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the animal pug
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let animal = [
+                    {
+                        "name": "lion",
+                        "gender": "male",
+                        "height": "5'"
+                    },
+                    {
+                        "name": "tiger",
+                        "gender": "female",
+                        "height": "4'"
+                    },
+                    {
+                        "name": "tiger",
+                        "gender": "male",
+                        "height": "9'"
+                    },                   
+                ]
+            each n,index in animal
+                div(class="row")
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{n.name}
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{n.gender}
+                    div(class="col-sm-2" onclick=`buy(${index})`) #{n.height}
+  script.                
+    function buy(product)
+    {
+        alert(`You Purchased Item ${product+1}`)
+    }

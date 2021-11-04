@@ -3,5 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  p I am Nikhil Krishnan Venkatesh and I have made changes to index.pug
-  button(type='button' class="btn btn-secondary") Press me
+  div(id='target') Display
+  a(href='/cars') cars page link
+  script.
+      let client_count = 0;
+      function update() {
+        client_count = client_count+1;
+        document.getElementById("target").innerHTML = `Value now ${client_count}`  ;
+      }
